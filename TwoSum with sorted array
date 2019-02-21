@@ -1,0 +1,26 @@
+echo "# LeetCodeProblems" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/timiagiri/LeetCodeProblems.git
+git push -u origin master
+
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int left=1,right=numbers.length,sum;
+        sum = numbers[left-1]+numbers[right-1];
+        while(sum!=target){
+            sum = numbers[left-1]+numbers[right-1];
+            if(sum<target)
+                left++;
+            else if(sum>target)
+                right--;
+            if(left>=right)
+                break;
+        }
+        int[] indices = new int[2];
+        if(left<right)
+            indices[0]=left;indices[1]=right;
+        return indices;
+    }
+}
