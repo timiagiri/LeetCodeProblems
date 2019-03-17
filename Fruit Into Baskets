@@ -1,0 +1,21 @@
+class Solution {
+    public int totalFruit(int[] tree) {
+        int i,f1,f2,size=0,maxSize=0;
+        for(i=0;i<tree.length;i++){
+            f1=tree[i];
+            size=1;
+            int k=i;
+            while(k<tree.length-1 && tree[k]==f1)
+                k++;
+            f2 = tree[k];
+            for(int j=i+1;j<tree.length;j++){
+                if(!(tree[j]==f1 || tree[j]==f2))
+                    break;
+                size++;
+            }
+            if(size>maxSize)
+                maxSize  = size;
+        }
+        return maxSize;
+    }
+}
