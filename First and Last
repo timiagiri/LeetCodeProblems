@@ -1,0 +1,24 @@
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        int ptr1,ptr2, n = nums.length;
+        int[] result = new int[2];
+        result[0] = -1;
+        result[1] = -1;;
+        for(int i=0;i<n;i++){
+            ptr1 = nums[i];
+            if(ptr1==target){
+                for(int j=n-1;j>=i;j--){
+                    ptr2 = nums[j];
+                    if(ptr2==target){
+                        result[0] = i;
+                        result[1] = j;
+                        break;
+                    }
+                }
+                break;
+            }
+        }
+        return result;
+    }
+}
+
